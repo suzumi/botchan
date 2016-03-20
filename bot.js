@@ -62,9 +62,9 @@ This bot demonstrates many of the core features of Botkit:
     -> http://howdy.ai/botkit
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+const SLACK_TOKEN = process.env.SLACK_API_KEY
 
-
-if (!process.env.token) {
+if (!SLACK_TOKEN) {
     console.log('Error: Specify token in environment');
     process.exit(1);
 }
@@ -77,7 +77,7 @@ var controller = Botkit.slackbot({
 });
 
 var bot = controller.spawn({
-    token: process.env.token
+    token: SLACK_TOKEN
 }).startRTM();
 
 
